@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-    namespace Notificationschedulingsystem.Models.Enums
+﻿namespace Notificationschedulingsystem.Models.Enums
+{
+    public enum CompanyTipe
     {
-        public enum CompanyTipe
-        {
-            small,
-            medium,
-            large
-        }
+        small,
+        medium,
+        large
     }
+}

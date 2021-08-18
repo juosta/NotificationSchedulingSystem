@@ -1,18 +1,16 @@
 ﻿using Notificationschedulingsystem.Models.Enums;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Notificationschedulingsystem.Models
+namespace Notificationschedulingsystem.Models.DTO
 {
-    public class Company
+    public class CreateCompanyDTO
     {
-        [Key]
         public Guid Id { get; set; }
         public string CompanyName { get; set; }
+        [RegularExpression("[0-9]{10}", ErrorMessage = "Entered company number format is not valid.")]
         public string CompanyNumber { get; set; }
         public CompanyTipe Type { get; set; }
         public Market Market { get; set; }
-        public virtual ICollection<Notification> Notifications { get; set; }
     }
 }

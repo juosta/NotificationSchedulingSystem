@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Notificationschedulingsystem.Services;
+using System.Text.Json.Serialization;
 
 namespace Notificationschedulingsystem
 {
@@ -38,7 +39,13 @@ namespace Notificationschedulingsystem
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Notificationschedulingsystem", Version = "v1" });
             });
             services.AddTransient<ICompanyService, CompanyService>();
-           
+            services
+                 .AddMvc()
+                 .AddJsonOptions(opts =>
+                 {
+                     var enumConverter = new JsonStringEnumConverter();
+                     opts.JsonSerializerOptions.Converters.Add(enumConverter);
+                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

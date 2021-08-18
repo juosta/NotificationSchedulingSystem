@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Notificationschedulingsystem.Models;
-using System;
-using System.Linq;
 
 namespace Notificationschedulingsystem.Data
 {

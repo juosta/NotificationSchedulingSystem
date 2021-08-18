@@ -9,5 +9,6 @@ namespace Notificationschedulingsystem.Services
     public interface ICompanyService
     {
         public Task<CompanyDTO> GetCompanyNotifications(Guid id);
+        public Task CreateCompany(CreateCompanyDTO model); 
     }
 }

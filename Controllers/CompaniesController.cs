@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Notificationschedulingsystem.Data;
 using Notificationschedulingsystem.Models.DTO;
 using Notificationschedulingsystem.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Notificationschedulingsystem.Controllers
 {
@@ -21,18 +17,18 @@ namespace Notificationschedulingsystem.Controllers
             _companyService = companyService;
         }
 
-        // GET api/<CompaniesController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await _companyService.GetCompanyNotifications(id);
-            return NoContent();
+            return Ok(result);
         }
 
-        // POST api/<CompaniesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] CreateCompanyDTO model)
         {
+            await _companyService.CreateCompany(model);
+            return CreatedAtAction(nameof(Post), new { id = model.Id }, model);
         }
     }
 }
