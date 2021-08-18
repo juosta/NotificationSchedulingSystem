@@ -11,5 +11,6 @@ namespace Notificationschedulingsystem.Models
         [DisplayName("Company Id")]
         public Guid CompanyId { get; set; }
         public DateTime SendDate { get; set; }
+        public virtual Company Company { get; set; }
     }
 }

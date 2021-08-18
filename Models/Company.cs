@@ -1,5 +1,7 @@
 ﻿using Notificationschedulingsystem.Models.Enums;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,5 +18,6 @@ namespace Notificationschedulingsystem.Models
         public string CompanyNumber { get; set; }
         public CompanyTipe Type { get; set; }
         public Market Market { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using Notificationschedulingsystem.Models;
 using System;
 using System.Linq;
 
-namespace ExpensesApp.Data
+namespace Notificationschedulingsystem.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -12,7 +12,7 @@ namespace ExpensesApp.Data
         {
 
         }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Notification> Notification { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }

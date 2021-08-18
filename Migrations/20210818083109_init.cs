@@ -33,16 +33,27 @@ namespace Notificationschedulingsystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notification", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notification_Company_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Company",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notification_CompanyId",
+                table: "Notification",
+                column: "CompanyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Company");
+                name: "Notification");
 
             migrationBuilder.DropTable(
-                name: "Notification");
+                name: "Company");
         }
     }
 }
